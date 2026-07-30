@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body class="container d-flex bg-secondary justify-content-center ">
+    <div class="container bg-secondary">
+        <h1 class="text-warning text-center mt-5">Signup Form</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputEmail1" class="form-label">User Name</label>
+                <input type="text" name="username" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <p class="text-danger fw-bolder">{{error}}</p>
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputEmail1" class="form-label">First Name</label>
+                <input type="text" name="first_name" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputEmail1" class="form-label">Last Name</label>
+                <input type="text" name="last_name" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputEmail1" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-5 text-light" for="exampleInputEmail1" class="form-label">Age</label>
+                <input type="number" name="age" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Role</label>
+                <select name="role" id="exampleInputEmail1" class="form-control bg-dark text-light"
+                    aria-describedby="emailHelp" required>
+                    {% if request.user.role == 0%}
+                    <option value="2">Employee</option>
+                    <option value="1">Manager</option>
+                    <option value="0">Admin</option>
+                    {% if request.user.role == 1 %}
+                    <option value="2">Employee</option>
+                    <option value="1">Manager</option>
+                    {% endif %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

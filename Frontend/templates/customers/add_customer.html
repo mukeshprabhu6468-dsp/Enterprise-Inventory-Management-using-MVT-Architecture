@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if add_form %}
+       <h1 class="text-center text-dark my-5">Add Customer</h1>
+       <div>
+       <form class="fs-4" method="POST">
+          {% csrf_token %}
+          {{ add_form }}
+          <input class="btn btn-primary my-4 fs-4" type="submit" value="Add Customer">
+       </form>
+       </div>
+    {% elif edit_form %}
+       <h1 class="text-center text-dark my-5">Edit Customer</h1>
+       <form method="POST">
+          {% csrf_token %}
+          {{ edit_form }}
+          <input class="btn btn-success my-4 fs-4" type="submit" value="Edit Customer">
+       </form>
+    {% endif %}
+
+{% endblock %}
