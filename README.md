@@ -128,9 +128,10 @@ Enterprise Inventory Management/
      *  Forms
      *  Responsive layouts
      *  Alerts and other UI elements
+
+
 🔒 Security
 
        The project includes authentication and role-based access control to restrict access to specific operations.
 
-       For production deployment, additional security configurations such as environment variables,
-       HTTPS, secure cookies and proper database credentials should be configured.
+       For production deployment, additional security configurations such as environment variables, HTTPS, secure cookies and proper database credentials should be configured.
